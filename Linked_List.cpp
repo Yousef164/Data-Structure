@@ -157,9 +157,9 @@ public:
     int search(int elm)
     {
         node*cur =  first;
+        int pos = 0;
         while(cur != NULL)
         {
-            int pos = 0;
             if(cur-> item == elm)
                 return pos;
 

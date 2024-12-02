@@ -6,22 +6,22 @@ class stack
 private:
     t*arr{nullptr};
     int    top;
-    int lenght;
+    int length;
 
 public:
     stack(int l) 
     {
         top =   -1;
-        lenght = l;
-        arr = new t[lenght]{};
+        length = l;
+        arr = new t[length]{};
     }
     bool isempty()
     {
-        return lenght == 0;
+        return length == 0;
     }
     void push(t val)
     {
-        if(top >= lenght - 1)
+        if(top >= length - 1)
             cout << "Stack full.\n";
         else
             arr[++top] = val;

@@ -10,13 +10,13 @@ private:
         node* left;
         node*right;
     };
-    int lenght;
+    int length;
     node* last;
     node*first;
 public:
     Doubly_Linked_List()
     {
-        lenght=    0;
+        length=    0;
         first = NULL;
         last  = NULL;
     }
@@ -24,7 +24,7 @@ public:
     {
         node*new_elm = new node;
         new_elm-> item =    elm;
-        if(lenght == 0)
+        if(length == 0)
         {
             last = new_elm;
             first= new_elm;
@@ -38,13 +38,13 @@ public:
             new_elm-> left =    NULL;
             first = new_elm;
         }
-        lenght++;
+        length++;
     }
     void push_back(int elm)
     {
         node*new_elm = new node;
         new_elm-> item =    elm;
-        if(lenght == 0)
+        if(length == 0)
         {
             last = new_elm;
             first= new_elm;
@@ -58,17 +58,17 @@ public:
             new_elm-> right=    NULL;
             last = new_elm;
         }
-        lenght++;
+        length++;
     }
     void insert(int idx, int elm)
     {
-        assert(idx >= 0 && idx <= lenght);
+        assert(idx >= 0 && idx <= length);
         node*new_elm = new node;
         new_elm-> item =    elm;
         if(idx == 0)
             push_front(elm);
 
-        else if(idx == lenght)
+        else if(idx == length)
             push_back(elm);
 
         else
@@ -81,13 +81,13 @@ public:
             new_elm-> right= cur-> right;
             cur-> right-> left = new_elm;
             cur -> right =       new_elm;
-            lenght++;
+            length++;
         }
     }
     void pop_front()
     {
-        assert(lenght > 0);
-        if (lenght == 1)
+        assert(length > 0);
+        if (length == 1)
         {
             delete first;
             first = NULL;
@@ -100,12 +100,12 @@ public:
             first-> left =   NULL;
             delete cur;
         }
-        lenght--;
+        length--;
     }
     void pop_back()
     {
-        assert(lenght > 0);
-        if(lenght == 1)
+        assert(length > 0);
+        if(length == 1)
         {
             delete first;
             first = NULL;
@@ -118,11 +118,11 @@ public:
             last-> right = NULL;
             delete cur;
         }
-        lenght--;
+        length--;
     }
     void pop_elm(int elm)
     {
-        assert(lenght > 0);
+        assert(length > 0);
         node*cur =   first;
         while (cur != NULL)
         {
@@ -144,7 +144,7 @@ public:
             cur-> left-> right = cur-> right;
             cur-> right-> left = cur->  left;
             delete cur;
-            lenght--  ;
+            length--  ;
         }
     }
     int search(int elm)

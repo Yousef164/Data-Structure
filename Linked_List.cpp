@@ -11,11 +11,11 @@ private:
     };
     node*first;
     node* last;
-    int lenght;
+    int length;
 public:
     Linked_List()
     {
-        lenght =    0;
+        length =    0;
         first  = NULL;
         last   = NULL;
     }
@@ -23,7 +23,7 @@ public:
     {
         node*new_elm = new node;
         new_elm-> item  =   elm;
-        if (lenght == 0)
+        if (length == 0)
         {
             new_elm-> next = NULL;
             first = new_elm;
@@ -34,14 +34,14 @@ public:
             new_elm-> next = first;
             first = new_elm;
         }
-        lenght++;
+        length++;
     }
     void push_back(int elm)
     {
         node*new_elm = new node;
         new_elm-> item =    elm;
         new_elm-> next =   NULL;
-        if (lenght == 0)
+        if (length == 0)
         {
             first = new_elm;
             last  = new_elm;    
@@ -51,15 +51,15 @@ public:
             last-> next = new_elm;
             last = new_elm; 
         }
-        lenght++;
+        length++;
     }
     void insert(int idx, int elm)
     {
-        assert(idx >= 0 && idx <= lenght);
+        assert(idx >= 0 && idx <= length);
         if (idx == 0)
             push_front(elm);
         
-        else if (idx == lenght)
+        else if (idx == length)
             push_back(elm);
         
         else
@@ -73,29 +73,29 @@ public:
             }
             new_elm-> next = cur-> next;
             cur-> next =        new_elm;
-            lenght++;
+            length++;
         }
     }
     void pop_front()
     {
-        assert  (lenght > 0);
+        assert  (length > 0);
         node*cur =     first;
         first = first-> next;
-        if (lenght == 1)
+        if (length == 1)
             last = first;
         delete cur;
-        lenght  --;
+        length  --;
     }
     void pop_back()
     {
-        assert(lenght > 0);
-        if(lenght == 1)
+        assert(length > 0);
+        if(length == 1)
         {
             node*cur = first;
             first = NULL;
             last  = NULL;
             delete   cur;
-            lenght--;
+            length--;
         }
         else
         {
@@ -107,12 +107,12 @@ public:
             cur  =  cur-> next;
             delete cur;
             last-> next = NULL;
-            lenght--;
+            length--;
         }
     }
     void pop_elm(int elm)
     {
-        assert(lenght > 0);
+        assert(length > 0);
         if(first-> item == elm)
             pop_front();
         else
@@ -133,13 +133,13 @@ public:
             {
                 prv-> next = cur-> next;
                 delete cur;
-                lenght  --;
+                length  --;
             }
         }
     }
     void reverse()
     {
-        assert  (lenght > 0);
+        assert  (length > 0);
         node*cur, *prv, *pos;
         prv   = first;
         cur   = first;

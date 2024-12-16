@@ -1,13 +1,13 @@
 #include  <iostream>
 #include   <cassert>
 using namespace std;
-template<class tybe>
+template<class type>
 class linked_queue
 {
 private:
     struct node
     {
-        tybe item;
+        type item;
         node*next;
     };
     node*first;
@@ -20,7 +20,7 @@ public:
         first= NULL;
         length =  0;
     }
-    void push(tybe val)
+    void push(type val)
     {
         node*new_elm = new node;
         new_elm-> item = val;

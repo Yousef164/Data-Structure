@@ -2,16 +2,16 @@
 #include   <cassert>
 #include     <queue>
 using namespace std;
-template<class tybe>
+template<class type>
 class binary_search_tree
 {
 private:
     struct node
     {
-        tybe  item;
+        type  item;
         node* left;
         node*right;
-        node(tybe val)
+        node(type val)
         {
             item =  val;
             left = NULL;
@@ -19,7 +19,7 @@ private:
         }
     };
     node*root;
-    void helper_push(node*temp, tybe val)
+    void helper_push(node*temp, type val)
     {
         if(val > temp-> item)
         {
@@ -45,7 +45,7 @@ private:
             }
         }
     }
-    tybe helper_max(node*temp)
+    type helper_max(node*temp)
     {
         while(temp-> right != NULL)
         {
@@ -53,7 +53,7 @@ private:
         }
         return temp-> item;
     }
-    tybe helper_min(node*temp)
+    type helper_min(node*temp)
     {
         while(temp-> left != NULL)
         {
@@ -93,7 +93,7 @@ private:
         helper_postorder(temp-> right);
         cout << temp-> item <<    ' ';
     }
-    node* helper_pop(node*temp, tybe val)
+    node* helper_pop(node*temp, type val)
     {
         if(val < temp-> item)
         {
@@ -117,7 +117,7 @@ private:
             }
             else
             {
-                tybe maxval = helper_max  (temp-> left);
+                type maxval = helper_max  (temp-> left);
                 temp-> item = maxval;
                 temp-> left = helper_pop(temp-> left, maxval);
             }
@@ -126,7 +126,7 @@ private:
     }
 public:
     binary_search_tree() : root(NULL){}
-    void push(tybe val)
+    void push(type val)
     {
         if(root == NULL)
         {
@@ -137,12 +137,12 @@ public:
             helper_push(root, val);
         }
     }
-    tybe get_max()
+    type get_max()
     {
         assert    (root != NULL);
         return  helper_max(root);
     }
-    tybe get_min()
+    type get_min()
     {
         assert    (root != NULL);
         return  helper_min(root);
@@ -191,7 +191,7 @@ public:
         helper_postorder (root);
         cout << '\n';
     }
-    void pop(tybe val)
+    void pop(type val)
     {
         assert(root != NULL);
         helper_pop(root, val);

@@ -1,18 +1,18 @@
 #include  <iostream>
 using namespace std;
-template<class tybe>
+template<class type>
 class   Linked_Stack
 {
 private:
     struct node
     {
-        tybe item;
+        type item;
         node*next;
     };
     node*top;
 public:
     Linked_Stack(): top(NULL){}
-    void push(int val)
+    void push(type val)
     {
         node*new_elm = new node;
         new_elm-> item =    val;

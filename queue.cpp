@@ -1,7 +1,7 @@
 #include  <iostream>
 #include   <cassert>
 using namespace std;
-template<class tybe>
+template<class type>
 class queue
 {
 private:
@@ -9,7 +9,7 @@ private:
     int     last;
     int   length;
     int capacity;
-    tybe*arr{nullptr};
+    type*arr{nullptr};
 public:
     queue(int l)
     {
@@ -18,13 +18,13 @@ public:
         last     =-1;
         length   = 0;
         capacity = l;
-        arr = new tybe[capacity] {};
+        arr = new type[capacity] {};
     }
     bool isEmpty()
     {
         return length == 0;
     }
-    void push(tybe val)
+    void push(type val)
     {
         if(length == capacity)
         {

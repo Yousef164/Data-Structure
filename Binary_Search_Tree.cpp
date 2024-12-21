@@ -107,13 +107,15 @@ private:
         {
             if(temp-> left == NULL)
             {
-                return temp-> right;
+                node*cur = temp-> right;
                 delete temp;
+                return cur;
             }
             else if(temp-> right == NULL)
             {
-                return temp-> left;
+                node*cur = temp-> left;
                 delete temp;
+                return cur;
             }
             else
             {
@@ -194,7 +196,7 @@ public:
     void pop(type val)
     {
         assert(root != NULL);
-        helper_pop(root, val);
+        root = helper_pop(root, val);
     }
 };
 int main()
